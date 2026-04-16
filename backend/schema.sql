@@ -81,7 +81,7 @@ CREATE TABLE sms_messages (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   user_id UUID REFERENCES users(id) ON DELETE CASCADE,
   lead_id UUID REFERENCES leads(id) ON DELETE CASCADE,
-  twilio_sid VARCHAR,
+  vapi_message_id VARCHAR,
   direction VARCHAR CHECK (direction IN ('outbound', 'inbound')),
   body TEXT NOT NULL,
   status VARCHAR DEFAULT 'sent',
